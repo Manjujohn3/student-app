@@ -1,3 +1,8 @@
+import mysql.connector
+
+mydb= mysql.connector.connect(host = 'localhost' , user = 'root' , password = '' , database = 'studentdb')
+mycursor = mydb.cursor()
+
 while True:
     print("select an option from menu")
     print("1 add student")
@@ -10,6 +15,15 @@ while True:
     choice = int(input("Enter an option: "))
     if(choice==1):
         print("student enter selected")
+        name = input("enter the name")
+        rollnumber = input("enter the rollno")
+        admno = input("enter the admno")
+        college = input("enter the college name")
+        sql = 'INSERT INTO `students`(`name`, `rollnumber`, `admno`, `college`) VALUES (%s,%s,%s,%s)'
+        data = (name,rollnumber,admno,college)
+        mycursor.execute(sql , data)
+        mydb.commit()
+
     elif(choice==2):
         print("view student selected")
     elif(choice==3):

@@ -11,12 +11,12 @@ while True:
     if(choice==1):
         print("student enter selected")
     elif(choice==2):
-        print("view student")
+        print("view student selected")
     elif(choice==3):
-        print("search a student")
+        print("search student selected")
     elif(choice==4):
-        print("update the student")
+        print("update student selected")
     elif(choice==5):
-        print("delete a student")
-    elif(choice):
+        print("delete student selected")
+    elif(choice==6):
         break

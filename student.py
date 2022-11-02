@@ -1,3 +1,4 @@
+from unittest import result
 import mysql.connector
 
 mydb= mysql.connector.connect(host = 'localhost' , user = 'root' , password = '' , database = 'studentdb')
@@ -26,6 +27,13 @@ while True:
 
     elif(choice==2):
         print("view student selected")
+
+        sql = 'SELECT * FROM `students`'
+        mycursor.execute(sql)
+        result =  mycursor.fetchall()
+        for i in result:
+            print(i)
+            
     elif(choice==3):
         print("search student selected")
     elif(choice==4):

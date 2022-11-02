@@ -13,8 +13,8 @@ while True:
     print("5 delete a student")
     print("6 insert marks")
     print("7 view all marks")
-    print("8 view subjectwise marks")
-    print("9 individual marks")
+    print("8 view individual marks")
+    print("9 subjectwise marks")
     print("10 exit")
 
     choice = int(input("Enter an option: "))
@@ -99,6 +99,22 @@ while True:
             print(i)
 
     elif(choice==8):
+        print("view individual marks")
+        adm = input('enter the admnumber : ')
+        sql = 'SELECT `id` FROM `students` WHERE `admno`=' +adm
+        mycursor.execute(sql)
+        result = mycursor.fetchall()
+        id = 0
+        for i in result:
+            id = str(i[0])
+        print('id of the student : ', id)
+        sql = 'SELECT * FROM `marks` WHERE `id`='+id
+        mycursor.execute(sql)
+        result = mycursor.fetchall()
+        for i in result:
+            print(i)
+
+    elif(choice==9):
         print('Display subject wise mark')
         adm = input('Enter the admi number ')
         sub = input('enter the subject you need to display (physicsmark,chemistrymark,mathsmarks) : ')
